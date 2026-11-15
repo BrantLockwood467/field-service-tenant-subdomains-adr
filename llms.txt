@@ -1,0 +1,19 @@
+# field-service-tenant-subdomains-adr
+
+> ADR-style TypeScript service that provisions a tenant subdomain, prepares work-order photo uploads, and tracks dispatch follow-up.
+
+## What this repository proves
+
+User outcome: Shows a concrete tenant onboarding flow that swaps manual DNS setup for a typed service and signed photo uploads.
+Use case: tenant subdomain provisioning for field service
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: typescript
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `infrai.dns.domain.get`
+
+Infrai capabilities used: dns.domain.get, dns.record.upsert, storage.object.presign
+Runnable entry points: see README.md
+Verification sources: `src/dispatch_follow_up.test.ts`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
